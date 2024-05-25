@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>tieda de abarrotes</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        button, input {
+            width: 200px;
+            height: 40px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Comida</h1>
+    <div class="container"></div>
+    <button id="Menú"><a href="Menú.html">Menú</a></button>
+    <button id="Calcular">Calcular</button>
+
+    <div class="column"></div>
+    <h1 style="text-align: center;">Cantidades por caja</h1>
+    <input type="number" id="can1" placeholder="Sopa">
+    <input type="number" id="can2" placeholder="Mayonea">
+    <input type="number" id="can3" placeholder="Lata de verduras">
+    <input type="number" id="can4" placeholder="Quesos y cremas">
+    <input type="number" id="can5" placeholder="Aceite">
+    <input type="number" id="can6" placeholder="Lata de frijoles">
+
+    <div class="column"></div>
+    <h1 style="text-align: center;">Total</h1>
+    <input type="text" id="tot1" readonly>
+    <input type="text" id="tot2" readonly>
+    <input type="text" id="tot3" readonly>
+    <input type="text" id="tot4" readonly>
+    <input type="text" id="tot5" readonly>
+    <input type="text" id="tot6" readonly>
+
+    <div class="column"></div>
+    <h1 style="text-align: center;">limite de compra</h1>
+    <input type="number" id="stock1" value="100" placeholder="Stock 1" readonly>
+    <input type="number" id="stock2" value="100" placeholder="Stock 2" readonly>
+    <input type="number" id="stock3" value="100" placeholder="Stock 3" readonly>
+    <input type="number" id="stock4" value="100" placeholder="Stock 4" readonly>
+    <input type="number" id="stock5" value="100" placeholder="Stock 5" readonly>
+    <input type="number" id="stock6" value="100" placeholder="Stock 6" readonly>
+    
+    <script>
+
+        var stock1 = Number(document.getElementById('stock1').value);
+        var stock2 = Number(document.getElementById('stock2').value);
+        var stock3 = Number(document.getElementById('stock3').value);
+        var stock4 = Number(document.getElementById('stock4').value);
+        var stock5 = Number(document.getElementById('stock5').value);
+        var stock6 = Number(document.getElementById('stock6').value);
+
+        document.getElementById('Menú').addEventListener('click', function() {
+        });
+        document.getElementById('Calcular').addEventListener('click', function() {
+            var can1 = document.getElementById('can1').value;
+            var can2 = document.getElementById('can2').value;
+            var can3 = document.getElementById('can3').value;
+            var can4 = document.getElementById('can4').value;
+            var can5 = document.getElementById('can5').value;
+            var can6 = document.getElementById('can6').value;
+
+            document.getElementById('tot1').value = can1 * 10;
+            document.getElementById('tot2').value = can2 * 10;
+            document.getElementById('tot3').value = can3 * 10;
+            document.getElementById('tot4').value = can4 * 10;
+            document.getElementById('tot5').value = can5 * 10;
+            document.getElementById('tot6').value = can6 * 10;
+
+            stock1 -= can1;
+            stock2 -= can2;
+            stock3 -= can3;
+            stock4 -= can4;
+            stock5 -= can5;
+            stock6 -= can6;
+
+            document.getElementById('stock1').value = stock1;
+            document.getElementById('stock2').value = stock2;
+            document.getElementById('stock3').value = stock3;
+            document.getElementById('stock4').value = stock4;
+            document.getElementById('stock5').value = stock5;
+            document.getElementById('stock6').value = stock6;
+        });
+    </script>
+</body>
+</html>
